@@ -5,50 +5,50 @@ require("options")
 
 require("lazy").setup({
     { 
-		"nvim-lualine/lualine.nvim", 
-		dependencies = "nvim-tree/nvim-web-devicons",
-	},
+        "nvim-lualine/lualine.nvim", 
+        dependencies = "nvim-tree/nvim-web-devicons",
+    },
     { 
-		"nvim-treesitter/nvim-treesitter", 
-		branch = "master", 
-		lazy = false, 
-		build = ":TSUpdate",
-		config = require("nvimtree"),
-	},
+        "nvim-treesitter/nvim-treesitter", 
+        branch = "master", 
+        lazy = false, 
+        build = ":TSUpdate",
+        config = require("nvimtree"),
+    },
     { 
-		"catppuccin/nvim", 
-		name = "catppuccin",
-	},
+        "catppuccin/nvim", 
+        name = "catppuccin",
+    },
     { 
-		"nvim-tree/nvim-tree.lua",
-		lazy = false,
-		dependencies = "nvim-tree/nvim-web-devicons",
-	},
-	{ 
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-	{ 
-		"mfussenegger/nvim-lint",
-		config = require("linter"),
-	},
-	{
-		"neovim/nvim-lspconfig",
-		config = require("lsp"),
-	},
-	{
-		"folke/trouble.nvim",
-		opts = {},
-		cmd = "Trouble", 
-		keys = {
-			{
-			  "<leader>rr",
-			  "<cmd>Trouble diagnostics toggle win.position=right<cr>",
-			  desc = "Diagnostics (Trouble)",
-		  	},
-		},
-	},
+        "nvim-tree/nvim-tree.lua",
+        lazy = false,
+        dependencies = "nvim-tree/nvim-web-devicons",
+    },
+    { 
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.8",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+    { 
+        "mfussenegger/nvim-lint",
+        config = require("linter"),
+    },
+    {
+        "neovim/nvim-lspconfig",
+        config = require("lsp"),
+    },
+    {
+        "folke/trouble.nvim",
+        opts = {},
+        cmd = "Trouble", 
+        keys = {
+            {
+              "<leader>rr",
+              "<cmd>Trouble diagnostics toggle win.position=right<cr>",
+              desc = "Diagnostics (Trouble)",
+            },
+        },
+    },
 
 })
 

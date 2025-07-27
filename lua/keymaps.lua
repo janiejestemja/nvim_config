@@ -11,4 +11,3 @@ vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], {noremap = true})
 
 -- Linter
 vim.keymap.set("n", "<leader>ee", vim.diagnostic.open_float)
-
