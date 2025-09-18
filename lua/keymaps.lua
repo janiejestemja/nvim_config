@@ -2,8 +2,8 @@
 vim.g.mapleader = "?"
 
 -- NvimTree
-vim.api.nvim_set_keymap("n", "<leader>to", ":NvimTreeOpen<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>tc", ":NvimTreeClose<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>uu", ":NvimTreeOpen<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>ui", ":NvimTreeClose<CR>", {noremap = true, silent = true})
 
 -- Terminal
 vim.api.nvim_set_keymap("n", "<leader>tt", ":belowright split | resize 11 | terminal<CR>", {noremap = true, silent = true})
