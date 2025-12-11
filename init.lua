@@ -84,9 +84,15 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help ta
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local bufnr = args.buf
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then return end 
+
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr })
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr })
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
 
     vim.lsp.inlay_hint.enable(true, {bufnr = args.buf})
   end,
@@ -120,5 +126,15 @@ end
 
 -- Enable it globally
 vim.lsp.enable("rust_analyzer")
+
+-- Enable autoformatting on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(vim.lsp.get_active_clients()[1].id)
+        if client and client.name == "rust_analyzer" then
+            vim.lsp.buf.format({ bufnr = bufnr })
+        end
+    end,
+})
 
 require("completion")
