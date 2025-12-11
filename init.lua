@@ -47,6 +47,11 @@ require("lazy").setup({
               "<cmd>Trouble diagnostics toggle win.position=right<cr>",
               desc = "Diagnostics (Trouble)",
             },
+            {
+              "<leader>rs",
+              "<cmd>Trouble symbols toggle focus=false<cr>",
+              desc = "Symbols (Trouble)",
+            },
         },
     },
     {
@@ -62,17 +67,7 @@ require("lazy").setup({
     {
         "lewis6991/gitsigns.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("gitsigns").setup({
-                signs = {
-                    add = { text = "+" },
-                    change = { text = "~" },
-                    delete = { text = "_" },
-                    topdelete = { text = "‾" },
-                    changedelete = { text = "~" },
-                },
-            })
-        end,
+        config = require("gitsignscfg")
     },
 })
 
@@ -191,7 +186,7 @@ vim.lsp.enable("rust_analyzer")
 -- Enable autoformatting on save
 vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function(args)
-        local client = vim.lsp.get_client_by_id(vim.lsp.get_active_clients()[1].id)
+        local client = vim.lsp.get_client_by_id(vim.lsp.get_clients()[1].id)
         if client and client.name == "rust_analyzer" then
             vim.lsp.buf.format({ bufnr = bufnr })
         end

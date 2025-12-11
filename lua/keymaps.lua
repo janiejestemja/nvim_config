@@ -1,5 +1,5 @@
 -- Mapping keys
-vim.g.mapleader = "?"
+vim.g.mapleader = "f"
 
 -- NvimTree
 vim.api.nvim_set_keymap("n", "<leader>uu", ":NvimTreeOpen<CR>", {noremap = true, silent = true})
@@ -10,4 +10,4 @@ vim.api.nvim_set_keymap("n", "<leader>tt", ":belowright split | resize 11 | term
 vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], {noremap = true})
 
 -- Linter
-vim.keymap.set("n", "<leader>ee", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>re", vim.diagnostic.open_float)
