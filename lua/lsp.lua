@@ -6,9 +6,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if not client then return end 
 
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr })
+    vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { buffer = bufnr })
+    vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { buffer = bufnr })
+    vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { buffer = bufnr })
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr })
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
 
