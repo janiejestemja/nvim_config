@@ -1,6 +1,10 @@
 -- Mapping keys
 vim.g.mapleader = "f"
 
+-- Map y to z and z to y
+vim.keymap.set({"n", "v", "o"}, "y", "z")
+vim.keymap.set({"n", "v", "o"}, "z", "y")
+
 -- NvimTree
 vim.api.nvim_set_keymap("n", "<leader>uu", ":NvimTreeOpen<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>ui", ":NvimTreeClose<CR>", {noremap = true, silent = true})
