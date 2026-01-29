@@ -1,6 +1,6 @@
 -- Configure rust-analyzer
 vim.lsp.config("rust_analyzer", {
-  cmd = { "rust-analyzer" },
+  cmd = { "/home/jnja/.cargo/bin/rust-analyzer" },
   filetypes = { "rust" },
   settings = {
     ["rust-analyzer"] = {
