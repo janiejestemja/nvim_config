@@ -64,4 +64,9 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
         config = require("gitsignscfg")
     },
+    {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+    },
 }
