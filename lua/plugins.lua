@@ -65,8 +65,37 @@ return {
         config = require("gitsignscfg")
     },
     {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    opts = {},
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
+    },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {},
+    },
+    {
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        opts = {},
+        keys = {
+          { "<leader>fS", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+          { "<leader>fs", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+          { "<leader>sf", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+          { "<leader>Sf", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+          { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+        },
+    }, 
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function() require("nvim-autopairs").setup {} end,
+    },
+    {
+        "NeogitOrg/neogit",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        cmd = "Neogit",
+        keys = { { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit" } },
+        opts = {},
     },
 }

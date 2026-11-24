@@ -10,7 +10,7 @@ vim.lsp.config("rust_analyzer", {
         bindingModeHints = { enabled = true },
         closureCaptureHints = { enabled = true },
         closureReturnTypeHints = { enable = "always" },
-        maxLength = 100,
+        maxLength = 30,
       },
       rustc = { source = "discover" },
     },
