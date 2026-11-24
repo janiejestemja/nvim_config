@@ -2,8 +2,6 @@ return function()
     local lint = require("lint")
 
     lint.linters_by_ft = {
-        -- dnf install python3-flake8
-        python = { "flake8" },
         cpp = { "cppcheck" },
     }
 

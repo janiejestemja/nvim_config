@@ -7,7 +7,8 @@
 ---
 ```bash
 git clone git@github.com:folke/lazy.nvim
-sudo dnf install python3-flake
+sudo dnf install uv
+uv tool install ty@latest
 ```
 
 ## Clearing caches

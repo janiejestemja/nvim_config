@@ -28,10 +28,8 @@ return {
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
-  { 
-    "mfussenegger/nvim-lint",
-    config = require("linter"),
-  },
+  -- linter for cpp
+  -- { "mfussenegger/nvim-lint", config = require("linter"),},
   {
     "folke/trouble.nvim",
     opts = {},
