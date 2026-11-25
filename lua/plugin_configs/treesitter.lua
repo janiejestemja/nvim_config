@@ -11,14 +11,14 @@ return function()
             lookahead = true, --jumps to next relevant object
 
             keymaps = {
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
+                ["<leader>of"] = "@function.outer",
+                ["<leader>if"] = "@function.inner",
 
-                ["ac"] = "@class.outer",
-                ["ic"] = "@class.inner",
+                ["<leader>oc"] = "@class.outer",
+                ["<leader>ic"] = "@class.inner",
 
-                ["ap"] = "@parameter.outer",
-                ["ip"] = "@parameter.inner",
+                ["<leader>op"] = "@parameter.outer",
+                ["<leader>ip"] = "@parameter.inner",
             },
         },
         move = {
