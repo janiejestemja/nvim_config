@@ -8,7 +8,7 @@ return {
     branch = "master", 
     lazy = false, 
     build = ":TSUpdate",
-    config = require("nvimtree"),
+    config = require("plugin_configs.nvimtree"),
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
@@ -29,7 +29,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   -- linter for cpp
-  -- { "mfussenegger/nvim-lint", config = require("linter"),},
+  -- { "mfussenegger/nvim-lint", config = require("plugin_configs.linter"),},
   {
     "folke/trouble.nvim",
     opts = {},
@@ -60,7 +60,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = require("gitsignscfg")
+    config = require("plugin_configs.gitsignscfg")
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -85,21 +85,21 @@ return {
     },
   }, 
   {
-      "windwp/nvim-autopairs",
-      event = "InsertEnter",
-      config = function() require("nvim-autopairs").setup {} end,
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function() require("nvim-autopairs").setup {} end,
   },
   {
-      "NeogitOrg/neogit",
-      dependencies = { "nvim-lua/plenary.nvim" },
-      cmd = "Neogit",
-      keys = { { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit" } },
-      opts = {},
+    "NeogitOrg/neogit",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = "Neogit",
+    keys = { { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit" } },
+    opts = {},
   },
   { 
-      "nvim-telescope/telescope-fzf-native.nvim", 
-      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install" 
-  },
+    "nvim-telescope/telescope-fzf-native.nvim", 
+    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install" 
+},
   {
     "Bekaboo/dropbar.nvim",
     -- optional, but required for fuzzy finder support
@@ -107,11 +107,6 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make"
     },
-    config = function()
-      local dropbar_api = require("dropbar.api")
-      vim.keymap.set("n", "<Leader>f.", dropbar_api.pick, { desc = "Pick symbols in winbar" })
-      vim.keymap.set("n", "<Leader>fN", dropbar_api.goto_context_start, { desc = "Go to start of current context" })
-      vim.keymap.set("n", "<Leader>fn", dropbar_api.select_next_context, { desc = "Select next context" })
-    end
+    config = require("plugin_configs.dropbar")
   },
 }

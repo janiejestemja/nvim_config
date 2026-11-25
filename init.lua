@@ -1,33 +1,18 @@
 vim.opt.rtp:prepend("~/.config/nvim/lazy.nvim")
 
-require("keymaps")
-require("options")
+require("opts.keymaps")
+require("opts.options")
 require("lazy").setup(require("plugins"))
-require("lualine").setup({
-    options = {
-        icons_enabled = true,
-        theme = "ayu_dark",
-    },
-    sections = {
-        lualine_c = {
-            { "filename", path = 1 },
-        },
-    },
-    inactive_sections = {
-        lualine_c = {
-            { "filename", path = 1 },
-        },
-    },
-})
-require("treesitter")
+require("plugin_configs.lualine")()
 vim.cmd.colorscheme("catppuccin-mocha")
-require("telescope")
-require("lsp")
-require("completion")
+require("plugin_configs.treesitter")()
+require("plugin_configs.telescope")()
+require("lsp.lsp")
+require("lsp.completion")
 require("ibl").setup()
 require("which-key").setup({})
 require("flash").setup({})
 require("neogit").setup({})
-require("rust")
-require("rust_fmt")
-require("python")
+require("lsp.rust")
+require("lsp.rust_fmt")
+-- require("lsp.python")
