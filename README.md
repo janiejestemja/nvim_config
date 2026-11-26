@@ -9,6 +9,7 @@
 git clone git@github.com:folke/lazy.nvim
 sudo dnf install uv
 uv tool install ty@latest
+cargo install --locked tree-sitter-cli
 ```
 
 ## Clearing caches

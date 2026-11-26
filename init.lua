@@ -16,3 +16,11 @@ require("neogit").setup({})
 require("lsp.rust")
 require("lsp.rust_fmt")
 -- require("lsp.python")
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "<filetype>" },
+  callback = function() vim.treesitter.start() end,
+})
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo.foldmethod = "expr"
+-- vim.opt.foldlevel = 99

@@ -5,7 +5,6 @@ return {
   },
   { 
     "nvim-treesitter/nvim-treesitter", 
-    branch = "master", 
     lazy = false, 
     build = ":TSUpdate",
     config = require("plugin_configs.nvimtree"),
@@ -110,9 +109,9 @@ return {
     config = require("plugin_configs.dropbar")
   },
   {
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
     version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("bufferline").setup({})
     end,
